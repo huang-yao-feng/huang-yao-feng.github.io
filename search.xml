@@ -4,6 +4,69 @@
   
     
     <entry>
+      <title>选择排序</title>
+      <link href="/2022/12/04/xuan-ze-pai-xu/"/>
+      <url>/2022/12/04/xuan-ze-pai-xu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="选择排序（Selection-Sort）"><a href="#选择排序（Selection-Sort）" class="headerlink" title="选择排序（Selection Sort）"></a>选择排序（Selection Sort）</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。</p><h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p>① 第一轮从下标为 1 到下标为 n-1 的元素中选取最小值，若小于第一个数，则交换<br>② 第二轮从下标为 2 到下标为 n-1 的元素中选取最小值，若小于第二个数，则交换<br>③ 依次类推下去……</p><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">selection_sort</span><span class="params">(<span class="type">int</span>[] arr)</span> {</span><br><span class="line">    <span class="type">int</span> i, j, min, temp, len = arr.length;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>; i &lt; len - <span class="number">1</span>; i++) {<span class="comment">//循环的次数</span></span><br><span class="line">        min = i;<span class="comment">//记录最小值的索引</span></span><br><span class="line">        <span class="keyword">for</span> (j = i + <span class="number">1</span>; j &lt; len; j++){<span class="comment">//每次循环要比较的次数</span></span><br><span class="line">            <span class="keyword">if</span> (arr[min] &gt; arr[j])</span><br><span class="line">                min = j;<span class="comment">//找到最小值位置的索引</span></span><br><span class="line">        }</span><br><span class="line">        <span class="comment">//每次找到最小值后进行交换</span></span><br><span class="line">        temp = arr[min];</span><br><span class="line">        arr[min] = arr[i];</span><br><span class="line">        arr[i] = temp;</span><br><span class="line">    }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p>O(n2)</p><h2 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h2><p>O(1)</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 排序算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>冒泡排序</title>
+      <link href="/2022/12/04/mou-pao-pai-xu/"/>
+      <url>/2022/12/04/mou-pao-pai-xu/</url>
+      
+        <content type="html"><![CDATA[<h1 id="冒泡排序-Bubble-Sort"><a href="#冒泡排序-Bubble-Sort" class="headerlink" title="冒泡排序(Bubble Sort)"></a>冒泡排序(Bubble Sort)</h1><h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>一个一维数组，里面有多个数，如何将数组里面的数排序？</p><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>将要排序的数进行两两比较，每次确定一个（最大值或最小值由你决定），然后在剩下的数中进行上述步骤</p><h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">以数组从小到大排序为例</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>;i&lt;array.length-<span class="number">1</span>;i++){<span class="comment">// array.length-1 表示 要循环的次数</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> <span class="number">0</span>;j&lt;array.length-<span class="number">1</span>-i;j++){<span class="comment">// array.length-1-i 表示 每次循环要比较的次数</span></span><br><span class="line">        <span class="keyword">if</span>(array[j]&gt;array[j+<span class="number">1</span>]){</span><br><span class="line">            <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> array[j];</span><br><span class="line">            array[j] = array[j+<span class="number">1</span>];</span><br><span class="line">            array[j+<span class="number">1</span>] = temp;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure><h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p>因为有两个for循环所以是：O(n2)</p><h2 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a>空间复杂度</h2><p>因为有临时辅助空间temp所以是：O(1)</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 排序算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Spring Security学习</title>
+      <link href="/2022/12/04/spring-security-xue-xi/"/>
+      <url>/2022/12/04/spring-security-xue-xi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="SpringSecurity"><a href="#SpringSecurity" class="headerlink" title="SpringSecurity"></a>SpringSecurity</h1><h2 id="权限管理"><a href="#权限管理" class="headerlink" title="权限管理"></a>权限管理</h2><p>基本上涉及到用户参与的系统都要进行权限管理，权限管理属于系统安全的范畴，权限管理实现 对用户访问系统的控制 ，按照 安全规则 或者 安全策略 控制用户可以访问而且只能访问自己被授权的资源。权限管理包括用户身份<strong>认证</strong>和<strong>授权</strong>两部分，简称<strong>认证授权</strong>。对于需要访问控制的资源用户首先经过身份认证，认证通过后用户具有该资源的访问权限方可访问。</p><h2 id="认证"><a href="#认证" class="headerlink" title="认证"></a>认证</h2><p>身份认证就是判断一个用户是否为合法用户的处理过程，最简单的认证就是系统通过核对用户输入的用户名和口令，是否正确。</p><h2 id="授权"><a href="#授权" class="headerlink" title="授权"></a>授权</h2><p>授权就是访问控制，控制用户允许访问的资源。进行身份认证后需要进行权限的分配才能访问系统的资源，对于某些资源是没有资格访问的。</p><h2 id="方案"><a href="#方案" class="headerlink" title="方案"></a>方案</h2><p>在java的企业级开发中，安全管理框架很少，常见的就是：</p><h3 id="Shiro"><a href="#Shiro" class="headerlink" title="Shiro"></a>Shiro</h3><p>Shiro是一个老牌的安全管理框架，优点：轻量级,简单，易于集成，可以在javase环境中使用。不过在微服务时代就显得力不从心。</p><h3 id="自定义"><a href="#自定义" class="headerlink" title="自定义"></a>自定义</h3><p>公司自己开发的安全管理框架，不仅仅包括登录和权限管理这么简单，还有对于网络攻击和防御的策略，大公司才会有能力开发</p><h3 id="Spring-Security"><a href="#Spring-Security" class="headerlink" title="Spring Security"></a>Spring Security</h3><p>SpringSecurity是Spring家族的一员，在Spring时代有着无可替代的地位，同时支持OAuth2,如SpringCloud Security是微服务项目的首要选择。</p><h2 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h2><img src="/2022/12/04/spring-security-xue-xi/image-20221204163410704.png" class=""><p>在SpringSecurity中认证<strong>Authentication</strong>和授权<strong>Authorization</strong>是分开的，也就是说无论你用什么方式认证都不会影响到你的授权。</p><h3 id="认证-1"><a href="#认证-1" class="headerlink" title="认证"></a>认证</h3><p>在Spring Security中认证是由AuthenticationManager接口来负责，</p><figure class="highlight java"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">AuthenticationManager</span> {</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">尝试对传递的身份验证对象进行身份验证，如果成功，则返回完全填充的身份验证对象（包括授予的权限）。</span></span><br><span class="line"><span class="comment">身份验证管理器必须履行以下有关异常的合同：</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">如果帐户被禁用，则必须引发 DisabledException，并且 AuthenticationManager 可以测试此状态。</span></span><br><span class="line"><span class="comment">如果帐户被锁定，则必须抛出 LockedException，并且 AuthenticationManager 可以测试帐户锁定。</span></span><br><span class="line"><span class="comment">如果提供不正确的凭据，则必须引发错误凭据异常。虽然上述例外是可选的，但身份验证管理器必须始终测试凭据</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">应测试异常，如果适用，应按上述顺序抛出（即，如果帐户被禁用或锁定，则身份验证请求将立即被拒绝，并且不执行凭据测试过程）。这可以防止针对已禁用或锁定的帐户测试凭据。</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">形参:</span></span><br><span class="line"><span class="comment">authentication – the authentication request object</span></span><br><span class="line"><span class="comment">返回值:</span></span><br><span class="line"><span class="comment">a fully authenticated object including credentials</span></span><br><span class="line"><span class="comment">抛出:</span></span><br><span class="line"><span class="comment">AuthenticationException – if authentication fails</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">形参:</span></span><br><span class="line"><span class="comment">身份验证 – 身份验证请求对象</span></span><br><span class="line"><span class="comment">返回值:</span></span><br><span class="line"><span class="comment">经过完全身份验证的对象，包括凭据</span></span><br><span class="line"><span class="comment">抛出:</span></span><br><span class="line"><span class="comment">身份验证异常 – 如果身份验证失败</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">Authentication <span class="title function_">authenticate</span><span class="params">(Authentication authentication)</span></span><br><span class="line"><span class="keyword">throws</span> AuthenticationException;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>AuthenticationManager 主要实现类为 ProviderManager，ProviderManager 中管理了众多AuthenticationProvider 实例。在一次完整的认证流程中，Spring Security 允许存在多个AuthenticationProvider ，用来实现多种认证方式，这些AuthenticationProvider 都是由ProviderManager 进行统一管理的。</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> Spring </tag>
+            
+            <tag> SpringSecurity </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>java基础知识</title>
       <link href="/2022/12/03/java-ji-chu-zhi-shi/"/>
       <url>/2022/12/03/java-ji-chu-zhi-shi/</url>
@@ -108,9 +171,28 @@
       
         <tags>
             
+            <tag> Spring </tag>
+            
             <tag> Java </tag>
             
-            <tag> Spring </tag>
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>idea2021.3.1破解</title>
+      <link href="/2021/12/04/idea2021-3-1-po-jie/"/>
+      <url>/2021/12/04/idea2021-3-1-po-jie/</url>
+      
+        <content type="html"><![CDATA[<h1 id="idea2021-3-1版本激活"><a href="#idea2021-3-1版本激活" class="headerlink" title="idea2021.3.1版本激活"></a>idea2021.3.1版本激活</h1><h2 id="第一步"><a href="#第一步" class="headerlink" title="第一步:"></a>第一步:</h2><p>下载的 IDEA 2021.3.1 <a href="https://www.jetbrains.com/idea/download/#section=windows">Download IntelliJ IDEA: The Capable &amp; Ergonomic Java IDE by JetBrains</a></p><h2 id="第二步："><a href="#第二步：" class="headerlink" title="第二步："></a>第二步：</h2><p>卸载老版本的 IDEA</p><h2 id="第三步："><a href="#第三步：" class="headerlink" title="第三步："></a>第三步：</h2><p>开始安装 IDEA 2021.3.1 版本（最好不要放在C盘）</p><h2 id="第四步："><a href="#第四步：" class="headerlink" title="第四步："></a>第四步：</h2><p>开始激活</p><p>点击 Start trial –&gt;点击 Login to JetBrains Account–&gt;注册一个 JetBrains–&gt;登录账号</p><h2 id="第五步："><a href="#第五步：" class="headerlink" title="第五步："></a>第五步：</h2><p>清空 IDEA 以前使用过的激活方式</p><p>之前安装过 IDEA, 且手动为 IDEA 修改过 hosts 文件，那么添加的配置，记得要删除；引用过的补丁也要移除掉等, 不然可能会与本文提供的补丁有冲突，出现各种奇奇怪怪的问题。</p><h2 id="第六步："><a href="#第六步：" class="headerlink" title="第六步："></a>第六步：</h2><p>依次点击菜单 Help -&gt; Edit Custom VM Options ， 修改 idea.vmoptions 文件在末尾添加下面代码</p><figure class="highlight plaintext"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-javaagent:D:\\temp\\ja-netfilter\\ja-netfilter.jar (从D开始后面的是补丁的存放路径，修改成自己的)</span><br></pre></td></tr></tbody></table></figure><p>也可以在C:\Users\黄耀枫\AppData\Roaming\JetBrains\IntelliJIdea2021.3中找到idea64.exe.vmoptions文件，添加上面第六步</p><h2 id="第七步："><a href="#第七步：" class="headerlink" title="第七步："></a>第七步：</h2><p>重启idea</p><h2 id="效果截图："><a href="#效果截图：" class="headerlink" title="效果截图："></a>效果截图：</h2><img src="/2021/12/04/idea2021-3-1-po-jie/image-20221204175417424.png" class=""><h2 id="资源连接："><a href="#资源连接：" class="headerlink" title="资源连接："></a>资源连接：</h2><p>链接：<a href="https://pan.baidu.com/s/1sNv-vL9E5uyHnYODf3-WIQ">https://pan.baidu.com/s/1sNv-vL9E5uyHnYODf3-WIQ</a><br>提取码：2021 </p><h2 id="注意事项："><a href="#注意事项：" class="headerlink" title="注意事项："></a>注意事项：</h2><p>不要更新版本</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> idea破解 </tag>
             
         </tags>
       
